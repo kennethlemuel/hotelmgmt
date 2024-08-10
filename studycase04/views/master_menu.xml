@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="hotel_menu" name="Hotel Booking" sequence="1"/>
+    <menuitem id="booking_menu" parent="hotel_menu" name="Booking" sequence="1" groups="studycase04.group_user,studycase04.group_supervisor,studycase04.group_manager"/>
+    <menuitem id="setting_menu" parent="hotel_menu" name="Setting" sequence="2" groups="studycase04.group_supervisor,studycase04.group_manager"/> 
+    <menuitem id="reporting_menu" parent="hotel_menu" name="Reporting" sequence="3" groups="studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model='ir.actions.act_window' id='action_tipe_kamar'>
+        <field name="name">Tipe-tipe Kamar</field>
+        <field name='res_model'>tipe.kamar</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+    <menuitem id='menu_tipekamar_action' parent='setting_menu' action='action_tipe_kamar' sequence="1" groups="studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model="ir.actions.act_window" id="action_fasilitas_kamar">
+        <field name="name">Fasilitas Kamar</field>
+        <field name="res_model">fasilitas.kamar</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_fasilitas_kamar_action" parent="setting_menu" action="action_fasilitas_kamar" sequence="2" groups="studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model="ir.actions.act_window" id="action_hotel_room">
+        <field name="name">List Kamar</field>
+        <field name="res_model">booking.hotel</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem id="menu_hotel_room_action" parent="booking_menu" action="action_hotel_room" sequence="1" groups="studycase04.group_user,studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model="ir.actions.act_window" id="action_transaksi">
+        <field name="name">Transaksi Booking</field>
+        <field name="res_model">transaksi.model</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+    <menuitem id="menu_transaksi_action" parent="booking_menu" action="action_transaksi" sequence="2" groups="studycase04.group_user,studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model="ir.actions.act_window" id="action_team">
+        <field name="name">Team</field>
+        <field name="res_model">team.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_team" parent="setting_menu" action="action_team" sequence="3" groups="studycase04.group_supervisor,studycase04.group_manager"/>
+
+    <record model="ir.actions.act_window" id="action_sales_report">
+        <field name="name">Sales Analysis</field>
+        <field name="res_model">sales.report</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="view_id" ref="view_sales_report_tree"/>
+        <field name="search_view_id" ref="view_sales_report_search"/>
+        <field name="context">{'search_default_Sales':1, 'group_by_no_leaf':1,'group_by':[], 'search_default_filter_order_date': 1}</field>
+    </record>
+    <menuitem id="menu_sales_report" name="Sales Report" parent="reporting_menu" action="action_sales_report" sequence="1" groups="studycase04.group_supervisor,studycase04.group_manager"/>
+
+</odoo>

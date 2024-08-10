@@ -1,0 +1,55 @@
+<odoo>
+
+    <record id="view_sales_report_tree" model="ir.ui.view">
+        <field name="name">sales.report.tree</field>
+        <field name="model">sales.report</field>
+        <field name="arch" type="xml">
+            <tree string="Sales Analysis">
+                <field name="date" widget="date"/>
+                <field name="salesteam_id"/>
+                <field name="salesperson_id" widget="many2one_avatar_user"/>
+                <field name="total_price" sum="Total Price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sales_report_pivot" model="ir.ui.view">
+        <field name="name">sales.report.pivot</field>
+        <field name="model">sales.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Analysis">
+                <field name="salesteam_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="total_price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_sales_report_graph" model="ir.ui.view">
+        <field name="name">sales.report.graph</field>
+        <field name="model">sales.report</field>
+        <field name="arch" type="xml">
+            <graph string="Sales Analysis" type="bar">
+                <field name="date" interval="day"/>
+                <field name="total_price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_sales_report_search" model="ir.ui.view">
+        <field name="name">sales.report.search</field>
+        <field name="model">sales.report</field>
+        <field name="arch" type="xml">
+            <search string="Sales Analysis">
+                <field name="date"/>
+                <field name="salesperson_id"/>
+                <field name="salesteam_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Salesperson" name="group_by_salesperson" context="{'group_by':'salesperson_id'}"/>
+                    <filter string="Sales Team" name="group_by_salesteam" context="{'group_by':'salesteam_id'}"/>
+                    <filter string="Order Date" name="group_by_date" context="{'group_by':'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

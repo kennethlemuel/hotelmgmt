@@ -1,0 +1,39 @@
+<odoo>
+    <record id="team_views_form" model="ir.ui.view">
+        <field name="name">team.model.form</field>
+        <field name="model">team.model</field>
+        <field name="arch" type="xml">
+            <form string="Team">
+                <sheet>
+                    <div class="oe_button_box" name="button_box" position="inside">
+                        <button name="get_transaksi" class="oe_stat_button" type="object" icon="fa-money">
+                            <field string="Transaksi (Rp.)" name="total_transaksi" widget="statinfo"/>
+                        </button>
+                        <button name="get_transaksi" class="oe_stat_button" type="object" icon="fa-percent">
+                            <field string="Komisi (Rp.)" name="total_komisi" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="teamname"/>
+                        <field name="salesleader"/>
+                        <field name="salesperson"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="team_views_tree" model="ir.ui.view">
+        <field name="name">team.model.tree</field>
+        <field name="model">team.model</field>
+        <field name="arch" type="xml">
+            <tree string="Team">
+                <field name="teamname"/>
+                <field name="salesleader"/>
+                <field name="salesperson"/>
+                <field name="total_transaksi"/>
+                <field name="total_komisi"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

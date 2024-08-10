@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_membermodule_member" model="ir.ui.view">
+        <field name="name">members.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name ='button_box' position="inside">
+                    <button class="oe_stat_button" type="object" name="get_booking" icon="fa-ticket">
+                        <field string="Booking" name="booking_count" widget="statinfo"/>
+                    </button>
+            </div>
+            <xpath expr= "//page[@name='internal_notes']" position='after'>
+                <page string="Transaction History">
+                    <field name="history"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

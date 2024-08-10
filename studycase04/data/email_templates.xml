@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record id="email_transaksi_confirmation" model="mail.template">
+            <field name="name">Transaksi Confirmation</field>
+            <field name="model_id" ref="model_transaksi_model"/>
+            <field name="subject">{{ object.order_id }}</field>
+            <field name="email_to">{{ object.member.email }}</field>
+            <field name="email_cc">{{ object.salesperson.email }}, {{ object.salesteam.salesleader.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.member.name"/>,
+                    </p>
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Transaksi Anda telah dikonfirmasi dengan detail berikut:
+                    </p>
+                    <ul>
+                        <li>Order ID: <t t-out="object.order_id"/></li>
+                        <li>Nama Member: <t t-out="object.member.name"/></li>
+                        <li>Sales Person: <t t-out="object.salesperson.name"/></li>
+                        <li>Sales Team: <t t-out="object.salesteam.teamname"/></li>
+                        <li>Kamar: <t t-out="object.kamar.name"/></li>
+                        <li>Start Date: <t t-out="object.startdate"/></li>
+                        <li>End Date: <t t-out="object.enddate"/></li>
+                        <li>Total Harga: <t t-out="object.total_price"/></li>
+                    </ul>
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Terima kasih telah menggunakan layanan kami.
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_transaksi_finish" model="mail.template">
+            <field name="name">Transaksi Finish</field>
+            <field name="model_id" ref="model_transaksi_model"/>
+            <field name="subject">Terima Kasih atas Transaksi: {{ object.order_id }}</field>
+            <field name="email_to">{{ object.member.email }}</field>
+            <field name="email_cc">{{ object.salesperson.email }}, {{ object.salesteam.salesleader.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.member.name"/>,
+                    </p>
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Transaksi Anda telah selesai dengan detail berikut:
+                    </p>
+                    <ul>
+                        <li>Order ID: <t t-out="object.order_id"/></li>
+                        <li>Nama Member: <t t-out="object.member.name"/></li>
+                        <li>Sales Person: <t t-out="object.salesperson.name"/></li>
+                        <li>Sales Team: <t t-out="object.salesteam.teamname"/></li>
+                        <li>Kamar: <t t-out="object.kamar.name"/></li>
+                        <li>Start Date: <t t-out="object.startdate"/></li>
+                        <li>End Date: <t t-out="object.enddate"/></li>
+                        <li>Total Harga: <t t-out="object.total_price"/></li>
+                    </ul>
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Terima kasih telah menggunakan layanan kami. Berikut adalah invoice Anda.
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

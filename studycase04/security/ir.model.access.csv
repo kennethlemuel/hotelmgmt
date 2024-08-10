@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+studycase04.access_booking_hotel,access_booking_hotel,studycase04.model_booking_hotel,base.group_user,1,1,1,1
+studycase04.access_fasilitas_kamar,access_fasilitas_kamar,studycase04.model_fasilitas_kamar,base.group_user,1,1,1,1
+studycase04.access_transaksi_model,access_transaksi_model,studycase04.model_transaksi_model,base.group_user,1,1,1,1
+studycase04.access_tipe_kamar,access_tipe_kamar,studycase04.model_tipe_kamar,base.group_user,1,1,1,1
+studycase04.access_team_model,access_team_model,studycase04.model_team_model,base.group_user,1,1,1,1
+studycase04.access_sales_report,access_sales_report,studycase04.model_sales_report,base.group_user,1,1,1,1
+

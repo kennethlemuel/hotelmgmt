@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="studycase04.list">
+      <field name="name">studycase04 list</field>
+      <field name="model">studycase04.studycase04</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="studycase04.action_window">
+      <field name="name">studycase04 window</field>
+      <field name="res_model">studycase04.studycase04</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="studycase04.action_server">
+      <field name="name">studycase04 server</field>
+      <field name="model_id" ref="model_studycase04_studycase04"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="studycase04" id="studycase04.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="studycase04.menu_1" parent="studycase04.menu_root"/>
+    <menuitem name="Menu 2" id="studycase04.menu_2" parent="studycase04.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="studycase04.menu_1_list" parent="studycase04.menu_1"
+              action="studycase04.action_window"/>
+    <menuitem name="Server to list" id="studycase04" parent="studycase04.menu_2"
+              action="studycase04.action_server"/>
+-->
+  </data>
+</odoo>

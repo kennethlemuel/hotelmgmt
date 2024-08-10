@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_check_finished_transactions" model="ir.cron">
+            <field name="name">Check and Send Finished Transactions</field>
+            <field name="model_id" ref="model_transaksi_model"/>
+            <field name="state">code</field>
+            <field name="code">model.check_and_send_finished_transactions()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

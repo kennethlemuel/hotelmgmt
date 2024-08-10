@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="module_user_roles" model="ir.module.category">
+            <field name="name">User Role</field>
+            <field name="description">User's role</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_user_roles"/>
+        </record>
+
+        <record id="group_supervisor" model="res.groups">
+            <field name="name">Supervisor</field>
+            <field name="category_id" ref="module_user_roles"/>
+        </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_user_roles"/>
+        </record>
+
+        <record id="user_own_documents_rule" model="ir.rule">
+            <field name="name">User</field>
+            <field name="model_id" ref="studycase04.model_transaksi_model"/>
+            <field name="groups" eval="[(4, ref('studycase04.group_user'))]"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="supervisor_team_documents_rule" model="ir.rule">
+            <field name="name">Supervisor</field>
+            <field name="model_id" ref="studycase04.model_transaksi_model"/>
+            <field name="groups" eval="[(4, ref('studycase04.group_supervisor'))]"/>
+            <field name="domain_force">['|', ('salesteam.salesleader', '=', user.id), ('salesteam.salesperson', 'in', [user.id])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="manager_all_documents_rule" model="ir.rule">
+            <field name="name">Manager</field>
+            <field name="model_id" ref="studycase04.model_transaksi_model"/>
+            <field name="groups" eval="[(4, ref('studycase04.group_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</odoo>
