@@ -1,0 +1,1 @@
+Created custom Odoo modules which helps with hotel booking efficiency, featuring advanced forms, role-based access, and automated notifications. Includes integration with Monday.com API for seamless project data synchronization if needed.
