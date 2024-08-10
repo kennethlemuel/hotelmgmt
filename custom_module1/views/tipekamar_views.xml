@@ -1,0 +1,33 @@
+<odoo>
+    <record id = 'tipekamar_views_form' model = 'ir.ui.view'>
+        <field name = 'name'>tipe.kamar.form</field>
+        <field name = 'model'>tipe.kamar</field>
+        <field name = 'arch' type = 'xml'>
+            <form string = 'Tipe Kamar'>
+                <sheet>
+                    <group>
+                        <field name = "tipekamar"/>
+                        <field name = "length"/>
+                        <field name = "width"/>
+                        <field name = "area"/>
+                        <field name = "price_per_night"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id = "tipekamar_views_tree" model = "ir.ui.view">
+        <field name = 'name'>tipe.kamar.tree</field>
+        <field name = 'model'>tipe.kamar</field>
+        <field name='arch' type='xml'>
+            <tree string='Tipe Kamar'>
+                <field name = 'tipekamar'/>
+                <field name = 'length'/>
+                <field name='width'/>
+                <field name='area'/>
+                <field name='price_per_night'/>
+            </tree>
+        </field>
+    </record>
+</odoo>

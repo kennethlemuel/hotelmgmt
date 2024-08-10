@@ -1,0 +1,27 @@
+<odoo>
+    <record id="fasilitas_views_form" model="ir.ui.view">
+        <field name = "name">fasilitas.kamar.form</field>
+        <field name = "model">fasilitas.kamar</field>
+        <field name = "arch" type = "xml">
+            <form string = "Fasilitas dalam kamar">
+                <sheet>
+                    <group>
+                        <field name = "nama"/>
+                        <field name = "kode"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fasilitas_views_tree" model="ir.ui.view">
+        <field name = "name">fasilitas.kamar.tree</field>
+        <field name = "model">fasilitas.kamar</field>
+        <field name = "arch" type = "xml">
+            <tree string = "Fasilitas dalam kamar">
+                    <field name = "nama"/>
+                    <field name = "kode"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

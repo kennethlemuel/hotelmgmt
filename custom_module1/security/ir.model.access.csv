@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+custom_module1.access_booking_hotel,access_booking_hotel,custom_module1.model_booking_hotel,base.group_user,1,1,1,1
+custom_module1.access_fasilitas_kamar,access_fasilitas_kamar,custom_module1.model_fasilitas_kamar,base.group_user,1,1,1,1
+custom_module1.access_transaksi_model,access_transaksi_model,custom_module1.model_transaksi_model,base.group_user,1,1,1,1
+custom_module1.access_tipe_kamar,access_tipe_kamar,custom_module1.model_tipe_kamar,base.group_user,1,1,1,1

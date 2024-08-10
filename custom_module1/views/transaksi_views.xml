@@ -1,0 +1,59 @@
+<odoo>
+    <record id="transaksi_views_form" model="ir.ui.view">
+        <field name = "name">transaksi.model.form</field>
+        <field name = "model">transaksi.model</field>
+        <field name = "arch" type = "xml">
+            <form string = "Transaksi Booking">
+                <header>
+                    <button name="transaksi_confirm" string="Confirm" type="object"
+                            attrs="{'invisible': [('status', '!=', 'draft')]}" class="btn-primary"/>
+                    <button name="transaksi_cancel" string="Cancel" type="object"
+                            attrs="{'invisible': [('status', 'not in', ('draft', 'active'))]}" class="btn-secondary"/>
+                    <!--<button name="auto_finish_bookings" string="test" type="object" class="btn-secondary"/>-->
+                </header>
+                <sheet>
+                    <group>
+                        <field name = "status"/>
+                        <field name = "member"/>
+                        <field name = "kamar"/>
+                        <field name = "startdate"/>
+                        <field name = "enddate"/>
+                        <field name = "durasi"/>
+                        <field name = "note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="transaksi_views_tree" model="ir.ui.view">
+        <field name = "name">transaksi.model.tree</field>
+        <field name = "model">transaksi.model</field>
+        <field name = "arch" type = "xml">
+            <tree string = "Transaksi Booking">
+                <field name="status"/>
+                <field name="member"/>
+                <field name="kamar"/>
+                <field name="startdate"/>
+                <field name="enddate"/>
+                <field name="durasi"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transaksi_views_calendar" model="ir.ui.view">
+        <field name="name">transaksi.model.calendar</field>
+        <field name="model">transaksi.model</field>
+        <field name="arch" type="xml">
+            <calendar string="Transaksi Booking"
+                      date_start="startdate"
+                      date_stop="enddate"
+                      color="status">
+                <field name="member"/>
+                <field name="kamar"/>
+                <field name="status"/>
+            </calendar>
+        </field>
+    </record>
+</odoo>

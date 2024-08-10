@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_kamar_hotel_form" model="ir.ui.view">
+        <field name="name">booking.hotel.form</field>
+        <field name="model">booking.hotel</field>
+        <field name="arch" type="xml">
+            <form string="Kamar-kamar Hotel">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tipekamar"/>
+                        <field name="floor"/>
+                        <field name="status"/>
+                        <field name="fasilitas"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_kamar_hotel_tree" model="ir.ui.view">
+        <field name="name">booking.hotel.tree</field>
+        <field name="model">booking.hotel</field>
+        <field name="arch" type="xml">
+            <tree string="Kamar-kamar Hotel">
+                <field name="name"/>
+                    <field name="tipekamar"/>
+                    <field name="floor"/>
+                    <field name="status"/>
+                    <field name="fasilitas"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_kamar_hotel_kanban" model="ir.ui.view">
+        <field name="name">booking.hotel.kanban</field>
+        <field name="model">booking.hotel</field>
+        <field name="arch" type="xml">
+            <kanban string="Kamar-kamar Hotel">
+                <field name="name"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_record">
+                            <div class="o_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <field name="status"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
